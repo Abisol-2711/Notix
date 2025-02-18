@@ -1,0 +1,24 @@
+.contentFolders{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    border: 1px solid blue;
+    cursor: pointer;
+}  
+
+.folder{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 10em;
+    height: 8em;
+    background-color: #a5a2aa;
+    border-radius: 1em;
+}
+
+.titleFolder{
+    font-weight: bold;
+    font-size: 1.2em;
+}

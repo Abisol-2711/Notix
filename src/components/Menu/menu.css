@@ -1,0 +1,35 @@
+.contentMenu{
+    background-color: #d6d4d1;
+    width: 6em;
+    height: 5em;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 1.5em;
+    right: 0em;
+    visibility: hidden;
+}
+
+.active{
+    visibility: visible;
+}
+
+.iconDots{
+    position: absolute;
+    right: .4em;
+    top: 0;
+}
+
+.contentEdit,
+.contentDelete{
+    display: flex;
+    margin: .5em;
+}
+
+.textEdit,
+.textDelete{
+    margin-left: .5em;
+}
