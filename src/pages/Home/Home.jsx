@@ -1,16 +1,21 @@
 import Notes from '../Notes/Notes'
 import Folders from '../Folders/Folders'
 import SideBar from '../../components/SideBar/SideBar'
+import Header from '../../components/Header/Header'
 import './home.css'
 import '../../styles/variable.css'
-
+Header
 function Home() {
   return (
-    <menu className="menu">
-      <SideBar />
-      <Notes />
-      <Folders />
-    </menu>
+    <div className='content'>
+      <Header className='header' />
+      <SideBar className='sideber' />
+      <menu className="menu">
+        <Notes />
+        <Folders />
+      </menu>
+    </div>
+
   )
 }
 
