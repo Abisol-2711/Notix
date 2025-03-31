@@ -5,16 +5,47 @@ import Trash from '../pages/Trash/Trash'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
+import NotFound from '../pages/NotFound/NotFound'
+import PrivateRoute from './PrivateRoute'
 
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/calendar" element={<Calendar />} />
-      <Route path="/trash" element={<Trash />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/calendar"
+        element={
+          <PrivateRoute>
+            <Calendar />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/trash"
+        element={
+          <PrivateRoute>
+            <Trash />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }

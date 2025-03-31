@@ -3,13 +3,13 @@ import Profile from '../Profile/Profile'
 import './header.css'
 
 function Header() {
-    return (
-        <header className='header'>
-            <h1 className='title'>Notix</h1>
-            <Search />
-            <Profile />
-        </header>
-    )
+  return (
+    <header className="header">
+      <h1 className="title">Notix</h1>
+      <Search />
+      <Profile />
+    </header>
+  )
 }
 
 export default Header

@@ -1,25 +1,27 @@
+import { UserAuth } from '../../context/AuthContext'
+import getName from '../../utils/getName'
 import './profile.css'
 
 function Profile() {
-    const userName = localStorage.getItem('user.email');
-    console.log(userName);
+  const { user } = UserAuth()
+  const name = getName(user)
 
-    return (
+  return (
+    <div>
+      <img src="" alt="" />
+      {name ? <p>Hola, {name}</p> : <p>Nombre no disponible</p>}
+      <div className="hidden">
         <div>
-            <img src="" alt="" />
-            <p>{userName || 'Nombre no disponible'}</p>
-            <div className='hidden'>
-                <div>
-                    <i>add icon</i>
-                    <p>Options</p>
-                </div>
-                <div>
-                    <i>add icon</i>
-                    <p>Log out</p>
-                </div>
-            </div>
+          <i>add icon</i>
+          <p>Options</p>
         </div>
-    )
+        <div>
+          <i>add icon</i>
+          <p>Log out</p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Profile

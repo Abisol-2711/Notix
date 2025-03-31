@@ -9,23 +9,37 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const getSessionAndListen = async () => {
       const {
         data: { user },
       } = await supabaseClient.auth.getUser()
       setUser(user)
+
+      const { data: listener } = supabaseClient.auth.onAuthStateChange(
+        async (event, session) => {
+          setUser(session?.user || null)
+
+          const currentPath = window.location.pathname
+
+          if (session) {
+            if (currentPath === '/login' || currentPath === '/register') {
+              navigate('/')
+            }
+          } else {
+            if (currentPath !== '/login' && currentPath !== '/register') {
+              navigate('/login', { replace: true })
+            }
+          }
+        }
+      )
+
+      return () => {
+        listener?.subscription?.unsubscribe()
+      }
     }
 
-    fetchUser()
-
-    const { data: listener } = supabaseClient.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user || null)
-      }
-    )
-
-    return () => listener?.subscription?.unsubscribe()
-  }, [])
+    getSessionAndListen()
+  }, [navigate])
 
   async function signInWithGoogle() {
     try {
@@ -111,27 +125,6 @@ export const AuthContextProvider = ({ children }) => {
       console.error(error.message)
     }
   }
-
-  useEffect(() => {
-    const { data: authListener } = supabaseClient.auth.onAuthStateChange(
-      async (event, session) => {
-        setUser(session?.user || null)
-
-        if (session) {
-          navigate('/')
-        } else {
-          const currentPath = window.location.pathname
-          if (currentPath !== '/login' && currentPath !== '/register') {
-            navigate('/login', { replace: true })
-          }
-        }
-      }
-    )
-
-    return () => {
-      authListener?.subscription?.unsubscribe()
-    }
-  }, [navigate])
 
   return (
     <AuthContext.Provider
