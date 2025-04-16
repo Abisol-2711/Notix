@@ -1,0 +1,23 @@
+.content {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'sidebar menu';
+  grid-gap: 10px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.menu {
+  /* border: 1px solid black; */
+  grid-area: menu;
+  overflow: scroll;
+}
