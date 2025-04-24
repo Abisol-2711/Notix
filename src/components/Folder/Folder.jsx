@@ -1,30 +1,45 @@
-import Menu from "../Menu/Menu"
-import "../../styles/variable.css";
-import { useEffect, useState } from "react";
-import folders from "../../utils/folders.json"
-import "./folder.css";
+import '../../styles/variable.css'
+import Menu from '../Menu/Menu'
+import '../../styles/variable.css'
+import { useEffect, useState } from 'react'
+import './folder.css'
+import { supabaseClient } from '../../supabase/client'
+import { UserAuth } from '../../context/AuthContext'
 
-function Folder() {
-    const [data, setData] = useState([]);
+function Folder({ onEdit, onDelete }) {
+  const { user } = UserAuth()
 
-    useEffect(() => {
-        const mockData = folders.data;
+  const [folders, setFolders] = useState([])
 
-        setTimeout(() => {
-            setData(mockData);
-        }, 1000);
-    })
+  useEffect(() => {
+    const fetchFolders = async () => {
+      if (!user) return
 
-    return (
-        <section className="contentFolders">
-            {data.map((folder) => (
-                <div key={folder.id} className="folder">
-                    <Menu />
-                    <h4 className="titleFolder">{folder.title}</h4>
-                </div>
-            ))}
-        </section>
-    )
+      const { data, error } = await supabaseClient
+        .from('folders')
+        .select('*')
+        .eq('user_id', user.id)
+
+      if (error) console.error('Error al obtener carpetas', error)
+      else setFolders(data)
+    }
+
+    fetchFolders()
+  }, [user])
+
+  return (
+    <section className="contentFolders">
+      {folders.map((folder) => (
+        <div key={folder.idFolder} className="folder">
+          <Menu
+            onEdit={() => onEdit(folder)}
+            onDelete={() => onDelete(folder)}
+          />
+          <h4 className="titleFolder">{folder.name}</h4>
+        </div>
+      ))}
+    </section>
+  )
 }
 
 export default Folder
