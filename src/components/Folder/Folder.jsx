@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react'
 import './folder.css'
 import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
+import confirmDelete from '../../utils/confirmDelete'
 
-function Folder({ onEdit, onDelete }) {
+function Folder({ onEdit }) {
   const { user } = UserAuth()
 
   const [folders, setFolders] = useState([])
@@ -27,13 +28,32 @@ function Folder({ onEdit, onDelete }) {
     fetchFolders()
   }, [user])
 
+  const handleDelete = async (folder) => {
+    const confirmed = await confirmDelete('carpeta')
+
+    if (!confirmed) return
+
+    const { error } = await supabaseClient
+      .from('folders')
+      .delete()
+      .eq('idFolder', folder.idFolder)
+
+    if (error) {
+      console.error('Error al eliminar carpeta:', error.message)
+    } else {
+      setFolders((prevFolders) =>
+        prevFolders.filter((f) => f.idFolder !== folder.idFolder)
+      )
+    }
+  }
+
   return (
     <section className="contentFolders">
       {folders.map((folder) => (
         <div key={folder.idFolder} className="folder">
           <Menu
             onEdit={() => onEdit(folder)}
-            onDelete={() => onDelete(folder)}
+            onDelete={() => handleDelete(folder)}
           />
           <h4 className="titleFolder">{folder.name}</h4>
         </div>

@@ -6,8 +6,9 @@ import 'material-symbols'
 import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
 import getDateNote from '../../utils/getDateNote'
+import confirmDelete from '../../utils/confirmDelete'
 
-function Note({ onEdit, onDelete }) {
+function Note({ onEdit }) {
   const { user } = UserAuth()
 
   const [notes, setNotes] = useState([])
@@ -28,11 +29,32 @@ function Note({ onEdit, onDelete }) {
     fetchNotes()
   }, [user])
 
+  const handleDelete = async (note) => {
+    const confirmed = await confirmDelete('nota')
+
+    if (!confirmed) return
+
+    const { error } = await supabaseClient
+      .from('notes')
+      .delete()
+      .eq('idNote', note.idNote)
+
+    if (error) {
+      console.error('Error al eliminar nota:', error.message)
+    } else {
+      setNotes((prevNotes) => prevNotes.filter((n) => n.idNote !== note.idNote))
+    }
+  }
+
   return (
     <section className="contentNotes">
       {notes.map((note) => (
         <div key={note.idNote} className="note">
-          <Menu onEdit={() => onEdit(note)} onDelete={() => onDelete(note)} />
+          <Menu
+            onEdit={() => onEdit(note)}
+            onDelete={() => handleDelete(note)}
+          />
+
           <h4 className="titleNote"> {note.title}</h4>
           <p className="contentNote"> {note.content}</p>
           <hr className="dividerNote" />

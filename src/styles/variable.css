@@ -1,24 +1,41 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.link{
-    color: #000000;
-    text-decoration: none;
+.link {
+  color: #000000;
+  text-decoration: none;
 }
 
-.link:hover{
-    color: #55a9a9;
+.link:hover {
+  color: #55a9a9;
 }
 
-.light{
-   background-color: #f0f8ff;
-
+.light {
+  background-color: #f0f8ff;
 }
 
-.dark{
-    background-color: #1d1e1f;
+.dark {
+  background-color: #1d1e1f;
 }
 
+.myConfirmButton {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.myCancelButton {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+}
