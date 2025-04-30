@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import './login.css'
 
 function Login() {
   const { signInWithGoogle, signInWithEmail } = UserAuth()
@@ -48,57 +49,68 @@ function Login() {
   }
 
   return (
-    <>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="exmple@hotmail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Contraseña</label>
-          <div style={{ position: 'relative' }}>
+    <div className="contentLogin">
+      <div className="contentFormBtnsLogin">
+        <form onSubmit={handleSubmit} className="formLogin">
+          <h2 className="titleLogin">Notix</h2>
+          <div className="contentInputLogin ">
+            <label htmlFor="email" className="labelLogin ">
+              Email
+            </label>
             <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              placeholder="********"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="email"
+              id="email"
+              placeholder="exmple@hotmail.com"
+              className="inputLogin "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{
-                position: 'absolute',
-                right: '78%',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              {showPassword ? '🙈' : '👁️'}{' '}
-            </button>
           </div>
+          <div className="contentInputLogin">
+            <label htmlFor="password" className="labelLogin ">
+              Contraseña
+            </label>
+            <div className="contentPasswordLogin">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                placeholder="********"
+                className="inputPasswordLogin"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="btnLogin"
+              >
+                <span className="material-symbols-rounded">
+                  {showPassword ? 'visibility' : 'visibility_off'}
+                </span>
+              </button>
+            </div>
+          </div>
+          <button type="submit" className="btnSubmitLogin">
+            Iniciar sesión
+          </button>
+        </form>
+        <hr className="lineLogin" />
+
+        <button onClick={signInWithGoogle} className="btnGoogleLogin">
+          Iniciar con Google
+        </button>
+        {/* <button onClick={signInWithFacebook}>Iniciar con Facebook</button> */}
+
+        <div className="contentNotAccountLogin">
+          <p className="textLogin">¿No tenes cuenta?</p>
+          <a href="/register" className="linkLogin">
+            Registrate
+          </a>
         </div>
-        <button type="submit">Iniciar sesión</button>
-        <div>
-          <p>¿No tenes cuenta?</p>
-          <a href="/register">Registrate</a>
-        </div>
-      </form>
-      <button onClick={signInWithGoogle}>Iniciar con Google</button>
-      {/* <button onClick={signInWithFacebook}>Iniciar con Facebook</button> */}
-    </>
+      </div>
+    </div>
   )
 }
 

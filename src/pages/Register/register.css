@@ -1,0 +1,209 @@
+.contentRegister {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, #88d28c 0%, transparent 40%),
+    radial-gradient(circle at 5% 40%, #d3ee98 0%, transparent 35%),
+    radial-gradient(circle at 70% 30%, #fffcc2 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, #91e496 0%, transparent 40%),
+    radial-gradient(circle at 95% 50%, #d3ee98 0%, transparent 30%),
+    radial-gradient(circle at 80% 60%, #eaf3ce 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentRegisterForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  background-color: #ffffff5c;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.titleRegister {
+  font-size: 2rem;
+  color: #333;
+  margin: 0.5em;
+}
+
+.contentInputRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.labelRegister {
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.5em 1em;
+  align-self: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputRegister {
+  width: 90%;
+  padding: 10px;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.inputRegister:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contentPasswordRegister {
+  width: 90%;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  position: relative;
+}
+
+.contentPasswordRegister:focus-within {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.inputPasswordRegister {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.inputPasswordRegister:focus {
+  outline: none;
+}
+
+.btnRegister {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.infoIconRegister {
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+}
+
+.contentRequirementsRegister {
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  list-style: none;
+}
+
+.itemRegister {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0.5em 0;
+}
+
+.itemRegisterError {
+  font-size: 0.9rem;
+  color: red;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.3em 0;
+}
+
+.iconError {
+  color: red;
+  font-size: 1rem;
+}
+
+.btnSubmitRegister {
+  margin-top: 1.2em;
+  width: 90%;
+  padding: 0.5em;
+  background-color: #d3ee98;
+  color: #2d3b2e;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.btnSubmitRegister:hover {
+  background-color: #b7d17f;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.contentNotAccountRegister {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.textRegister {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+.linkRegister {
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 425px) {
+  .contentRegisterForm {
+    height: 80vh;
+    width: 24em;
+  }
+}
