@@ -3,6 +3,7 @@ import Folder from '../../components/Folder/Folder'
 import 'material-symbols'
 import CreateFolder from '../../components/CreateFolder/CreateFolder'
 import EditFolder from '../../components/EditFolder/EditFolder'
+import './folders.css'
 
 function Folders() {
   const [isCreating, setIsCreating] = useState(false)
@@ -10,7 +11,7 @@ function Folders() {
   const [folderToEdit, setFolderToEdit] = useState(null)
 
   return (
-    <>
+    <section className="contentFoldersAndAdd">
       {isCreating ? (
         <CreateFolder onClose={() => setIsCreating(false)} />
       ) : isEditing ? (
@@ -29,11 +30,14 @@ function Folders() {
           }}
         />
       )}
-      <button onClick={() => setIsCreating(true)}>
-        <span className="material-symbols-rounded"> description </span>
-        <p>Nueva carpeta</p>
+      <button className="contentNewFolder" onClick={() => setIsCreating(true)}>
+        <span className="material-symbols-rounded iconNewFolder">
+          {' '}
+          create_new_folder{' '}
+        </span>
+        <p className="titleNewFolder">Nueva carpeta</p>
       </button>
-    </>
+    </section>
   )
 }
 

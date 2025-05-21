@@ -7,12 +7,12 @@ import '../../styles/variable.css'
 
 function Home() {
   return (
-    <div className="content">
+    <div className="contentHome">
       <Header className="header" />
       <SideBar className="sideber" />
-      <menu className="menu">
-        <Notes />
+      <menu className="menuHome">
         <Folders />
+        <Notes />
       </menu>
     </div>
   )

@@ -1,3 +1,25 @@
 .hidden {
-    display: none;
+  display: none;
 }
+
+.imgProfile {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.greeting {
+  display: none;
+}
+
+/*
+@media (max-width: 600px) {
+  .greeting {
+    display: none;
+  }
+}
+*/

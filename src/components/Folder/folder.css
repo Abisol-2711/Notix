@@ -1,24 +1,87 @@
-.contentFolders{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    border: 1px solid blue;
-    cursor: pointer;
-}  
-
-.folder{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 10em;
-    height: 8em;
-    background-color: #a5a2aa;
-    border-radius: 1em;
+.contentFolder {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.2s ease;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
 }
 
-.titleFolder{
-    font-weight: bold;
-    font-size: 1.2em;
+.contentFolder:hover {
+  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
 }
+
+.folderCard {
+  position: relative;
+  width: 120px;
+  height: 95px;
+  background-color: #a0d683;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: inset 0 -4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.folderTab {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 65px;
+  height: 22px;
+  background-color: #a0d683;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 13px;
+}
+
+.folderTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+.contentFolders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  border: 1px solid blue;
+  cursor: pointer;
+}
+
+.folderCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 10em;
+  height: 8em;
+  background-color: #a5a2aa;
+  border-radius: 1em;
+}
+
+.folderTitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+*/

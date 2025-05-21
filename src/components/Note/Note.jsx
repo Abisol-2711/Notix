@@ -47,16 +47,16 @@ function Note({ onEdit }) {
   }
 
   return (
-    <section className="contentNotes">
+    <>
       {notes.map((note) => (
-        <div key={note.idNote} className="note">
+        <div key={note.idNote} className="contentNote">
           <Menu
             onEdit={() => onEdit(note)}
             onDelete={() => handleDelete(note)}
           />
 
-          <h4 className="titleNote"> {note.title}</h4>
-          <p className="contentNote"> {note.content}</p>
+          <h4 className="titleNote" title={note.title}> {note.title}</h4>
+          <p className="textNote"> {note.content}</p>
           <hr className="dividerNote" />
           <div className="contentDate">
             <span className="material-symbols-rounded iconCalendar">
@@ -67,7 +67,7 @@ function Note({ onEdit }) {
           </div>
         </div>
       ))}
-    </section>
+    </>
   )
 }
 

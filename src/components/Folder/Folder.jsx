@@ -48,17 +48,22 @@ function Folder({ onEdit }) {
   }
 
   return (
-    <section className="contentFolders">
+    <>
       {folders.map((folder) => (
-        <div key={folder.idFolder} className="folder">
-          <Menu
-            onEdit={() => onEdit(folder)}
-            onDelete={() => handleDelete(folder)}
-          />
-          <h4 className="titleFolder">{folder.name}</h4>
+        <div key={folder.idFolder} className="contentFolder">
+          <div className="folderTab"></div>
+          <div className="folderCard">
+            <Menu
+              onEdit={() => onEdit(folder)}
+              onDelete={() => handleDelete(folder)}
+            />
+            <h4 className="folderTitle" title={folder.name}>
+              {folder.name}
+            </h4>
+          </div>
         </div>
       ))}
-    </section>
+    </>
   )
 }
 

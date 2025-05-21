@@ -1,21 +1,62 @@
 .nav {
+  width: 15em;
+  height: 2.5em;
+  background-color: #fdfffd;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -o-border-radius: 1em;
+  position: fixed;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.contentLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 15em;
+  height: 2.5em;
+}
+
+.iconSideBar {
+  font-size: 2em;
+}
+
+.iconSideBar:hover {
+  color: #6dce47;
+  transition: all 0.3s ease;
+}
+
+.textLink,
+.btnSideBar {
+  display: none;
+}
+
+/*
+Esto me puede servir cuando haga la parte del desktop
+.nav {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   padding-top: 3em;
   width: 10em;
   height: 100vh;
-  /* background-color: aqua; */
+  background-color: #4b4b4b;
 }
 
 .contentLinks {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin-left: 1em;
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0.5em;
   text-decoration: none;
   padding: 0.5em;
@@ -25,3 +66,11 @@
   background-color: #6dce47;
   border-radius: 5px;
 }
+
+@media (max-width: 600px) {
+  .textLink,
+  .btnSideBar {
+    display: none;
+  }
+}
+*/

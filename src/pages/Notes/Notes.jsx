@@ -10,7 +10,7 @@ function Notes() {
   const [noteToEdit, setNoteToEdit] = useState(null)
 
   return (
-    <>
+    <section className="contentFoldersAndAdd">
       {isCreating ? (
         <CreateNote onClose={() => setIsCreating(false)} />
       ) : isEditing ? (
@@ -30,11 +30,14 @@ function Notes() {
         />
       )}
 
-      <button onClick={() => setIsCreating(true)}>
-        <span className="material-symbols-rounded"> description </span>
-        <p>Nueva nota</p>
+      <button className="contentNewFolder" onClick={() => setIsCreating(true)}>
+        <span className="material-symbols-rounded iconNewFolder">
+          {' '}
+          note_add{' '}
+        </span>
+        <p className="titleNewFolder">Nueva nota</p>
       </button>
-    </>
+    </section>
   )
 }
 

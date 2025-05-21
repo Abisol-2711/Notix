@@ -8,23 +8,28 @@ function SideBar() {
   const { signout } = UserAuth()
 
   return (
-    <nav className='nav'>
-      <div className='contentLinks'>
+    <nav className="nav">
+      <div className="contentLinks">
         <Link to="/" className="link">
-          <span className="material-symbols-rounded"> home </span>
-          Inicio
+          <span className="material-symbols-rounded iconSideBar"> home </span>
+          <p className="textLink">Inicio</p>
         </Link>
         <Link to="/calendar" className="link">
-          <span className="material-symbols-rounded"> calendar_month </span>
-          Calendario
+          <span className="material-symbols-rounded iconSideBar">
+            {' '}
+            calendar_month{' '}
+          </span>
+          <p className="textLink">Calendario</p>
         </Link>
         <Link to="/trash" className="link">
-          <span className="material-symbols-rounded"> delete </span>
-          Papelara
+          <span className="material-symbols-rounded iconSideBar"> delete </span>
+          <p className="textLink">Papelera</p>
         </Link>
       </div>
 
-      <button onClick={signout}>Cerrar sesión</button>
+      <button className="btnSideBar" onClick={signout}>
+        Cerrar sesión
+      </button>
     </nav>
   )
 }
