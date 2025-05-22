@@ -22,6 +22,7 @@
 }
 
 .contentNote:hover {
+  cursor: pointer;
   transform: scale(1.03);
   -webkit-transform: scale(1.03);
   -moz-transform: scale(1.03);

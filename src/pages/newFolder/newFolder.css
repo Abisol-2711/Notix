@@ -1,0 +1,28 @@
+.newFolder {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 10% 10%, #88d28c 0%, transparent 40%),
+    radial-gradient(circle at 5% 40%, #d3ee98 0%, transparent 35%),
+    radial-gradient(circle at 70% 30%, #fffcc2 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, #91e496 0%, transparent 40%),
+    radial-gradient(circle at 95% 50%, #d3ee98 0%, transparent 30%),
+    radial-gradient(circle at 80% 60%, #eaf3ce 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.titleh2 {
+  font-size: 2.5rem;
+  color: #2c4723;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.contentNewFolder {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

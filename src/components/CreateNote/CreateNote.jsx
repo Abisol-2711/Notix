@@ -2,9 +2,7 @@ import { useState } from 'react'
 import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
 
-function CreateNote({ onClose }) {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+function CreateNote({ onClose, title, setTitle, content, setContent }) {
   const { user } = UserAuth()
 
   const handleSubmit = async (e) => {
@@ -28,14 +26,14 @@ function CreateNote({ onClose }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Crear nota</h4>
-      <label>
+    <form onSubmit={handleSubmit} className="formNote">
+      <label className="labelNote">
         Titulo
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="inputNote"
         />
       </label>
       <label>
@@ -46,10 +44,14 @@ function CreateNote({ onClose }) {
           onChange={(e) => setContent(e.target.value)}
         />
       </label>
-      <button type="submit">Guardar nota</button>
-      <button type="button" onClick={onClose}>
-        Cancelar
-      </button>
+      <div className="contentBtns">
+        <button type="submit" className="btnCreate">
+          Crear
+        </button>
+        <button type="button" className="btnCancel" onClick={onClose}>
+          Cancelar
+        </button>
+      </div>
     </form>
   )
 }

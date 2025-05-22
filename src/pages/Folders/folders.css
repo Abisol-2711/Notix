@@ -6,7 +6,8 @@
   padding: 1em;
 }
 
-.contentNewFolder {
+.contentNew {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,10 +23,10 @@
   -o-border-radius: 10px;
 }
 
-.iconNewFolder {
+.iconNew {
   font-size: 3em;
 }
 
-.titleNewFolder {
+.titleNew {
   font-size: 1.2em;
 }

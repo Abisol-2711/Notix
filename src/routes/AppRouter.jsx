@@ -7,6 +7,8 @@ import Register from '../pages/Register/Register'
 import Profile from '../pages/Profile/Profile'
 import NotFound from '../pages/NotFound/NotFound'
 import PrivateRoute from './PrivateRoute'
+import NewFolder from '../pages/newFolder/NewFolder'
+import NewNote from '../pages/newNote/NewNote'
 
 function AppRouter() {
   return (
@@ -18,6 +20,14 @@ function AppRouter() {
             <Home />
           </PrivateRoute>
         }
+      />
+      <Route
+        path="/carpeta/nueva"
+        element={<NewFolder onClose={() => window.history.back()} />}
+      />
+      <Route
+        path="/nota/nueva"
+        element={<NewNote onClose={() => window.history.back()} />}
       />
       <Route
         path="/calendar"

@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
+import './createFolder.css'
 
-function CreateFolder({ onClose }) {
-  const [name, setName] = useState('')
+function CreateFolder({ onClose, title, setTitle }) {
   const { user } = UserAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!name) return
+    if (!title) return
 
     const { error } = await supabaseClient.from('folders').insert([
       {
-        name: name,
+        name: title,
         user_id: user.id,
       },
     ])
@@ -26,20 +26,24 @@ function CreateFolder({ onClose }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Crear nota</h4>
-      <label>
-        Titulo
+    <form onSubmit={handleSubmit} className="formFolder">
+      <label className="labelFolder">
+        Nombre de la carpeta
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="inputFolder"
         />
       </label>
-      <button type="submit">Crear carpeta</button>
-      <button type="button" onClick={onClose}>
-        Cancelar
-      </button>
+      <div className="contentBtns">
+        <button type="submit" className="btnCreate">
+          Crear
+        </button>
+        <button type="button" className="btnCancel" onClick={onClose}>
+          Cancelar
+        </button>
+      </div>
     </form>
   )
 }
