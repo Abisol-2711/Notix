@@ -19,12 +19,14 @@ function NewNote() {
         content={content}
         setContent={setContent}
       />
-      <section>
-        <h4 className="titleNote" title={title}>
-          {' '}
-          {title || 'Título de ejemplo'}
-        </h4>
-        <p className="textNote"> {content || 'Contenido de ejemplo'}</p>
+      <section className="contentNewNote">
+        <div className="contentNote">
+          <h4 className="titleNote" title={title}>
+            {' '}
+            {title || 'Título de ejemplo'}
+          </h4>
+          <p className="textNote"> {content || 'Contenido de ejemplo'}</p>
+        </div>
       </section>
     </section>
   )

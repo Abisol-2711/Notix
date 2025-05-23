@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
+import './createNote.css'
 
 function CreateNote({ onClose, title, setTitle, content, setContent }) {
   const { user } = UserAuth()
@@ -36,12 +36,13 @@ function CreateNote({ onClose, title, setTitle, content, setContent }) {
           className="inputNote"
         />
       </label>
-      <label>
+      <label className="labelNote">
         Contenido
         <input
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          className="inputNote"
         />
       </label>
       <div className="contentBtns">

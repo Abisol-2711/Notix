@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 30vh;
   width: 90%;
   background-color: #ffffff5c;
   border-radius: 10px;
@@ -22,6 +21,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0.3em 0;
 }
 
 .inputNote {
@@ -31,6 +31,7 @@
   border-radius: 0.5rem;
   border: 1px solid #ccc;
   font-size: 1rem;
+  margin-bottom: 0.3em;
 }
 .inputNote:focus {
   border-color: #eeeb3c;
@@ -41,6 +42,7 @@
   display: flex;
   justify-content: space-between;
   width: 60%;
+  margin-bottom: 0.5em;
 }
 
 .btnCreate,
