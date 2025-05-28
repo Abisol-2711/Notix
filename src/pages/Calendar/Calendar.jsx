@@ -5,11 +5,11 @@ import '../../styles/variable.css'
 
 function Calendar() {
   return (
-    <div className="content">
+    <div className="contentCalendar">
       <Header className="header" />
-      <SideBar className="sideber" />
-      <menu className="menu">
-        <h3>Calendario</h3>
+      <SideBar className="sidebar" />
+      <menu className="menuCalendar">
+        <h3 className="titleCalendar">Proximamente</h3>
       </menu>
     </div>
   )

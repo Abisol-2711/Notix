@@ -9,7 +9,7 @@ function Home() {
   return (
     <div className="contentHome">
       <Header className="header" />
-      <SideBar className="sideber" />
+      <SideBar className="sidebar" />
       <menu className="menuHome">
         <Folders />
         <Notes />

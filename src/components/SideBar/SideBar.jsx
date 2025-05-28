@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import '../../styles/variable.css'
 import 'material-symbols'
 import { UserAuth } from '../../context/AuthContext'
@@ -10,21 +10,30 @@ function SideBar() {
   return (
     <nav className="nav">
       <div className="contentLinks">
-        <Link to="/" className="link">
+        <NavLink
+          to="/"
+          className={({ isActive }) => `link ${isActive ? 'active' : ''}`}
+        >
           <span className="material-symbols-rounded iconSideBar"> home </span>
           <p className="textLink">Inicio</p>
-        </Link>
-        <Link to="/calendar" className="link">
+        </NavLink>
+        <NavLink
+          to="/calendar"
+          className={({ isActive }) => `link ${isActive ? 'active' : ''}`}
+        >
           <span className="material-symbols-rounded iconSideBar">
             {' '}
             calendar_month{' '}
           </span>
           <p className="textLink">Calendario</p>
-        </Link>
-        <Link to="/trash" className="link">
+        </NavLink>
+        <NavLink
+          to="/trash"
+          className={({ isActive }) => `link ${isActive ? 'active' : ''}`}
+        >
           <span className="material-symbols-rounded iconSideBar"> delete </span>
           <p className="textLink">Papelera</p>
-        </Link>
+        </NavLink>
       </div>
 
       <button className="btnSideBar" onClick={signout}>

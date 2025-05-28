@@ -56,7 +56,7 @@ function AppRouter() {
         }
       />
       <Route
-        path="/profile"
+        path="/perfil"
         element={
           <PrivateRoute>
             <Profile />

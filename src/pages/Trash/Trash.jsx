@@ -5,11 +5,11 @@ import '../../styles/variable.css'
 
 function Trash() {
   return (
-    <div className="content">
+    <div className="contentTrash">
       <Header className="header" />
-      <SideBar className="sideber" />
-      <menu className="menu">
-        <h3>Papelera</h3>
+      <SideBar className="sidebar" />
+      <menu className="menuTrash">
+        <h3 className="titleTrash">Proximamente</h3>
       </menu>
     </div>
   )

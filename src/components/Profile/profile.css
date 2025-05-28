@@ -1,7 +1,3 @@
-.hidden {
-  display: none;
-}
-
 .imgProfile {
   width: 2em;
   height: 2em;
@@ -10,16 +6,74 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  cursor: pointer;
 }
 
 .greeting {
   display: none;
 }
 
-/*
-@media (max-width: 600px) {
+.contentMenuProfile {
+  background-color: #fdfffd;
+  width: 6em;
+  height: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 4em;
+  right: 0em;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, transform 0.2s ease;
+  -moz-transition: opacity 0.2s ease, transform 0.2s ease;
+  -ms-transition: opacity 0.2s ease, transform 0.2s ease;
+  -o-transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.activeProfile {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-8px);
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  -ms-transform: translateY(-8px);
+  -o-transform: translateY(-8px);
+}
+
+.contentEditProfile,
+.contentLogoutProfile {
+  display: flex;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.textEditProfile,
+.textLogoutProfile {
+  margin-left: 0.5em;
+}
+
+.textEditProfile:hover,
+.textLogoutProfile:hover {
+  font-weight: bold;
+}
+
+/* @media (max-width: 600px) {
   .greeting {
     display: none;
   }
-}
-*/
+} */
