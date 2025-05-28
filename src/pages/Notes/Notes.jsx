@@ -29,6 +29,7 @@ function Notes() {
             setIsEditing(true)
             setNoteToEdit(note)
           }}
+          onView={(note) => navigate(`/notas/${note.idNote}`)}
         />
       )}
 

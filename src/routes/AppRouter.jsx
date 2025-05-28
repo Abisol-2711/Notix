@@ -9,6 +9,8 @@ import NotFound from '../pages/NotFound/NotFound'
 import PrivateRoute from './PrivateRoute'
 import NewFolder from '../pages/newFolder/NewFolder'
 import NewNote from '../pages/newNote/NewNote'
+import ViewFolder from '../pages/viewFolder/ViewFolder'
+import ViewNote from '../pages/viewNote/ViewNote'
 
 function AppRouter() {
   return (
@@ -28,6 +30,14 @@ function AppRouter() {
       <Route
         path="/nota/nueva"
         element={<NewNote onClose={() => window.history.back()} />}
+      />
+      <Route
+        path="/carpetas/:id"
+        element={<ViewFolder onClose={() => window.history.back()} />}
+      />
+      <Route
+        path="/notas/:id"
+        element={<ViewNote onClose={() => window.history.back()} />}
       />
       <Route
         path="/calendar"

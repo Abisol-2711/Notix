@@ -30,6 +30,7 @@ function Folders() {
             setIsEditing(true)
             setFolderToEdit(folder)
           }}
+          onView={(folder) => navigate(`/carpetas/${folder.idFolder}`)}
         />
       )}
       <button className="contentNew" onClick={() => navigate('/carpeta/nueva')}>

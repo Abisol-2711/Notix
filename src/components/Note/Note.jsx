@@ -8,7 +8,7 @@ import { UserAuth } from '../../context/AuthContext'
 import getDateNote from '../../utils/getDateNote'
 import confirmDelete from '../../utils/confirmDelete'
 
-function Note({ onEdit }) {
+function Note({ onEdit, onView }) {
   const { user } = UserAuth()
 
   const [notes, setNotes] = useState([])
@@ -49,13 +49,20 @@ function Note({ onEdit }) {
   return (
     <>
       {notes.map((note) => (
-        <div key={note.idNote} className="contentNote">
+        <div
+          key={note.idNote}
+          className="contentNote"
+          onClick={() => onView(note)}
+        >
           <Menu
             onEdit={() => onEdit(note)}
             onDelete={() => handleDelete(note)}
           />
 
-          <h4 className="titleNote" title={note.title}> {note.title}</h4>
+          <h4 className="titleNote" title={note.title}>
+            {' '}
+            {note.title}
+          </h4>
           <p className="textNote"> {note.content}</p>
           <hr className="dividerNote" />
           <div className="contentDate">

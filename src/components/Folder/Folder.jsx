@@ -7,7 +7,7 @@ import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
 import confirmDelete from '../../utils/confirmDelete'
 
-function Folder({ onEdit }) {
+function Folder({ onEdit, onView }) {
   const { user } = UserAuth()
 
   const [folders, setFolders] = useState([])
@@ -50,7 +50,11 @@ function Folder({ onEdit }) {
   return (
     <>
       {folders.map((folder) => (
-        <div key={folder.idFolder} className="contentFolder">
+        <div
+          key={folder.idFolder}
+          className="contentFolder"
+          onClick={() => onView(folder)}
+        >
           <div className="folderTab"></div>
           <div className="folderCard">
             <Menu

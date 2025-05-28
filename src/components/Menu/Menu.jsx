@@ -26,16 +26,34 @@ function Menu({ onEdit, onDelete }) {
 
   return (
     <div ref={menuRef} style={{ display: 'inline-block' }}>
-      <span className="material-symbols-rounded iconDots" onClick={handleClick}>
+      <span
+        className="material-symbols-rounded iconDots"
+        onClick={(e) => {
+          e.stopPropagation()
+          handleClick()
+        }}
+      >
         {' '}
         more_horiz{' '}
       </span>
       <section className={`contentMenu ${isActive ? 'active' : ''}`}>
-        <div className="contentEdit" onClick={() => onEdit()}>
+        <div
+          className="contentEdit"
+          onClick={(e) => {
+            e.stopPropagation()
+            onEdit()
+          }}
+        >
           <span className="material-symbols-rounded"> edit_square </span>
           <p className="textEdit">Editar</p>
         </div>
-        <div className="contentDelete" onClick={() => onDelete()}>
+        <div
+          className="contentDelete"
+          onClick={(e) => {
+            e.stopPropagation()
+            onDelete()
+          }}
+        >
           <span className="material-symbols-rounded"> delete </span>
           <p className="textDelete">Borrar</p>
         </div>
