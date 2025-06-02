@@ -4,7 +4,7 @@
     'header header'
     'menu menu';
   grid-gap: 10px;
-  /* height: 100vh; */
+  min-height: 100vh;
   /* overflow: hidden; */
   background: radial-gradient(circle at 10% 10%, #88d28c 0%, transparent 40%),
     radial-gradient(circle at 5% 40%, #d3ee98 0%, transparent 35%),

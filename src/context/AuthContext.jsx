@@ -6,21 +6,102 @@ const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate()
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
+
+  // const checkAndInsertPhotoUser = async (user) => {
+  //   if (!user) return
+
+  //   const { data: existing, error } = await supabaseClient
+  //     .from('photoUser')
+  //     .select('id')
+  //     .eq('user_id', user.id)
+  //     .maybeSingle()
+
+  //   if (!existing && !error) {
+  //     const defaultUrl =
+  //       'https://xriutyuefwcaqyixxcqj.supabase.co/storage/v1/object/public/photos-profile/default/img_dafault.jpg'
+
+  //     const displayName =
+  //       user.user_metadata?.display_name || user.user_metadata?.name
+
+  //     const { error: insertError } = await supabaseClient
+  //       .from('photoUser')
+  //       .insert({
+  //         user_id: user.id,
+  //         url: defaultUrl,
+  //         display_name: displayName,
+  //       })
+
+  //     if (insertError) {
+  //       console.error('❌ Error al insertar en photoUser:', insertError.message)
+  //     } else {
+  //       console.log('✅ Usuario insertado en photoUser')
+  //     }
+  //   }
+  // }
+
+  const checkAndInsertPhotoUser = async (user, displayName) => {
+    if (!user) return
+
+    const { data: existing, error } = await supabaseClient
+      .from('photoUser')
+      .select('id')
+      .eq('user_id', user.id)
+      .maybeSingle()
+
+    if (!existing && !error) {
+      const defaultUrl =
+        'https://xriutyuefwcaqyixxcqj.supabase.co/storage/v1/object/public/photos-profile/default/img_dafault.jpg'
+
+      const nameToUse =
+        displayName ||
+        user.user_metadata?.display_name ||
+        user.user_metadata?.name
+
+      console.log('✅ Nombre usado en photoUser:', nameToUse)
+
+      const { error: insertError } = await supabaseClient
+        .from('photoUser')
+        .insert({
+          user_id: user.id,
+          url: defaultUrl,
+          display_name: nameToUse,
+        })
+
+      if (insertError) {
+        console.error('❌ Error al insertar en photoUser:', insertError.message)
+      } else {
+        console.log('✅ Usuario insertado en photoUser')
+      }
+    }
+  }
 
   useEffect(() => {
+    let alreadyChecked = false
+
     const getSessionAndListen = async () => {
       const {
-        data: { user },
-      } = await supabaseClient.auth.getUser()
-      setUser(user)
+        data: { session },
+      } = await supabaseClient.auth.getSession()
+      const currentUser = session?.user || null
+      setUser(currentUser)
+
+      if (currentUser && !alreadyChecked) {
+        alreadyChecked = true
+        await checkAndInsertPhotoUser(currentUser)
+      }
 
       const { data: listener } = supabaseClient.auth.onAuthStateChange(
         async (event, session) => {
-          setUser(session?.user || null)
+          const currentUser = session?.user || null
+          setUser(currentUser)
+
+          if (currentUser && !alreadyChecked) {
+            alreadyChecked = true
+            await checkAndInsertPhotoUser(currentUser)
+          }
 
           const currentPath = window.location.pathname
-
           if (session) {
             if (currentPath === '/login' || currentPath === '/register') {
               navigate('/')
@@ -79,24 +160,30 @@ export const AuthContextProvider = ({ children }) => {
 
       if (error) throw new Error(error.message)
 
-      if (data?.user) {
-        const { error: updateError } = await supabaseClient.auth.updateUser({
+      const user = data.user
+
+      if (user) {
+        const { error: metadataError } = await supabaseClient.auth.updateUser({
           data: { display_name: name },
         })
 
-        if (updateError) {
+        if (metadataError) {
           console.error(
-            'Error al actualizar display name:',
-            updateError.message
+            '❌ Error al actualizar user_metadata:',
+            metadataError.message
           )
         } else {
-          console.log('Display name actualizado correctamente')
+          console.log('✅ display_name guardado en user_metadata')
         }
+        await checkAndInsertPhotoUser({
+          ...user,
+          user_metadata: { display_name: name },
+        })
       }
 
       return data
     } catch (error) {
-      console.error(error.message)
+      console.error('❌ Error en el registro:', error.message)
     }
   }
 

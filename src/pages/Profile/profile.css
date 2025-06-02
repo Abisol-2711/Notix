@@ -1,0 +1,251 @@
+.contentFormProfile {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'form form';
+  grid-gap: 10px;
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 10%, #88d28c 0%, transparent 40%),
+    radial-gradient(circle at 5% 40%, #d3ee98 0%, transparent 35%),
+    radial-gradient(circle at 70% 30%, #fffcc2 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, #91e496 0%, transparent 40%),
+    radial-gradient(circle at 95% 50%, #d3ee98 0%, transparent 30%),
+    radial-gradient(circle at 80% 60%, #eaf3ce 0%, transparent 50%);
+}
+
+.header {
+  grid-area: header;
+}
+
+.contentFormBtnsProfile {
+  grid-area: form;
+  justify-self: center;
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 50vh;
+  width: 90%;
+  background-color: #ffffff5c;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contentInputProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.inputProfile[type='file'] {
+  display: none;
+}
+
+.profileImgWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.editImgBtn {
+  position: absolute;
+  bottom: 15px;
+  right: -7px;
+  background: #d3ee98;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 22px;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -ms-transition: background 0.2s;
+  -o-transition: background 0.2s;
+}
+
+.editImgBtn:hover {
+  background: #56b53c;
+}
+
+.imgFormProfile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-bottom: 1em;
+}
+
+.labelProfile {
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.5em 1em;
+  align-self: start;
+}
+
+.inputProfile {
+  width: 90%;
+  padding: 10px;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.inputProfile:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contentPasswordProfile {
+  width: 90%;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  position: relative;
+}
+
+.contentPasswordProfile:focus-within {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.inputPasswordProfile {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.inputPasswordProfile:focus {
+  outline: none;
+}
+
+.btnProfile {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btnSubmitProfile {
+  margin-top: 1.2em;
+  width: 90%;
+  padding: 0.5em;
+  background-color: #d3ee98;
+  color: #2d3b2e;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.btnSubmitProfile:hover {
+  background-color: #b7d17f;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.lineProfile {
+  width: 90%;
+  height: 1px;
+  background-color: #333;
+  margin: 0.5em auto;
+}
+
+.btnGoogleProfile {
+  width: 90%;
+  padding: 0.5em;
+  background: none;
+  color: #2d3b2e;
+  border: 2px solid #2d3b2e;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.btnGoogleProfile:hover {
+  background-color: #70a272;
+  border: 2px solid #4d704f;
+  color: #2d3b2e;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.contentNotAccountProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.textProfile {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+.linkProfile {
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 425px) {
+  .contentFormBtnsProfile {
+    height: 80vh;
+    width: 24em;
+  }
+}

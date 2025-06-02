@@ -1,16 +1,38 @@
 import { UserAuth } from '../../context/AuthContext'
+import { supabaseClient } from '../../supabase/client'
 import getName from '../../utils/getName'
 import './profile.css'
-import photo from '../../assets/photo.jpg'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Profile() {
-  const { user } = UserAuth()
+  const { user, signout } = UserAuth()
   const name = getName(user)
   const [isActive, setIsActive] = useState(false)
   const menuRef = useRef(null)
   const navigate = useNavigate()
+  const [photo, setPhoto] = useState('')
+
+  useEffect(() => {
+    const fetchPhoto = async () => {
+      if (!user) return
+
+      const { data, error } = await supabaseClient
+        .from('photoUser')
+        .select('*')
+        .eq('user_id', user.id)
+        .single()
+
+      if (error) {
+        console.error('Error al obtener foto de perfil', error)
+        setPhoto(null) // <- importante para evitar string vacío
+      } else {
+        setPhoto(data?.url ?? null) // <- importante
+      }
+    }
+
+    fetchPhoto()
+  }, [user])
 
   const handleClick = () => {
     setIsActive(!isActive)
@@ -19,10 +41,6 @@ function Profile() {
   const handleEdit = () => {
     setIsActive(false)
     navigate('/perfil')
-  }
-
-  const handleLogout = () => {
-    setIsActive(false)
   }
 
   useEffect(() => {
@@ -41,12 +59,15 @@ function Profile() {
 
   return (
     <div ref={menuRef} style={{ display: 'inline-block' }}>
-      <img
-        className="imgProfile"
-        src={photo}
-        alt="Foto de perfil"
-        onClick={handleClick}
-      />
+      {photo && (
+        <img
+          className="imgProfile"
+          src={photo}
+          alt="Foto de perfil"
+          onClick={handleClick}
+        />
+      )}
+
       {name ? (
         <p className="greeting">Hola, {name}</p>
       ) : (
@@ -59,7 +80,7 @@ function Profile() {
           <span className="material-symbols-rounded"> edit_square </span>
           <p className="textEditProfile">Editar</p>
         </div>
-        <div className="contentLogoutProfile" onClick={handleLogout}>
+        <div className="contentLogoutProfile" onClick={signout}>
           <span className="material-symbols-rounded"> logout </span>
           <p className="textLogoutProfile">Salir</p>
         </div>

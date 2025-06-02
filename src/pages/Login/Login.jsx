@@ -96,6 +96,7 @@ function Login() {
             Iniciar sesión
           </button>
         </form>
+
         <hr className="lineLogin" />
 
         <button onClick={signInWithGoogle} className="btnGoogleLogin">
