@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import '../../styles/index.css'
 import './register.css'
 
 function Register() {
@@ -77,53 +78,53 @@ function Register() {
   }
 
   return (
-    <div className="contentRegister">
-      <form onSubmit={handleSubmit} className="contentRegisterForm">
-        <h2 className="titleRegister">Registrarse</h2>
-        <div className="contentInputRegister">
-          <label htmlFor="name" className="labelRegister">
+    <div className="contentForm">
+      <form onSubmit={handleSubmit} className="contentFormContainer">
+        <h2 className="formTitle">Registrarse</h2>
+        <div className="contentInput">
+          <label htmlFor="name" className="labelField">
             Nombre
           </label>
           <input
             type="name"
             id="name"
             placeholder="Juan Carlos"
-            className="inputRegister"
+            className="inputField"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
-        <div className="contentInputRegister">
-          <label htmlFor="email" className="labelRegister">
+        <div className="contentInput">
+          <label htmlFor="email" className="labelField">
             Email
           </label>
           <input
             type="email"
             id="email"
             placeholder="exmple@hotmail.com"
-            className="inputRegister"
+            className="inputField"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div className="contentInputRegister">
-          <label htmlFor="password" className="labelRegister">
+        <div className="contentInput">
+          <label htmlFor="password" className="labelField">
             Contraseña
             <span
-              className="material-symbols-rounded infoIconRegister"
+              className="material-symbols-rounded infoIcon"
               title="Debe contener mínimo 8 caracteres, mayúsculas, minúsculas, números y símbolos."
             >
               info
             </span>
           </label>
-          <div className="contentPasswordRegister">
+          <div className="contentPassword">
             <input
               type={showPassword ? 'text' : 'password'}
               id="password"
               placeholder="********"
-              className="inputPasswordRegister"
+              className="inputPassword"
               value={password}
               onChange={handlePasswordChange}
               onFocus={handleFocusPassword}
@@ -132,7 +133,7 @@ function Register() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="btnRegister"
+              className="btnIcon"
             >
               <span className="material-symbols-rounded">
                 {showPassword ? 'visibility' : 'visibility_off'}
@@ -142,10 +143,10 @@ function Register() {
         </div>
 
         {showRequirements && (
-          <div className="contentRequirementsRegister">
-            <ul className="listRegister">
+          <div className="contentRequirements">
+            <ul className="listRequirements">
               {password.length < 8 && (
-                <li className="itemRegisterError">
+                <li className="itemRequirementError">
                   <span className="material-symbols-rounded iconError">
                     warning
                   </span>
@@ -153,7 +154,7 @@ function Register() {
                 </li>
               )}
               {!/[A-Z]/.test(password) && (
-                <li className="itemRegisterError">
+                <li className="itemRequirementError">
                   <span className="material-symbols-rounded iconError">
                     warning
                   </span>
@@ -161,7 +162,7 @@ function Register() {
                 </li>
               )}
               {!/[0-9]/.test(password) && (
-                <li className="itemRegisterError">
+                <li className="itemRequirementError">
                   <span className="material-symbols-rounded iconError">
                     warning
                   </span>
@@ -169,7 +170,7 @@ function Register() {
                 </li>
               )}
               {!/[^A-Za-z0-9]/.test(password) && (
-                <li className="itemRegisterError">
+                <li className="itemRequirementError">
                   <span className="material-symbols-rounded iconError">
                     warning
                   </span>
@@ -180,12 +181,12 @@ function Register() {
           </div>
         )}
 
-        <button type="submit" className="btnSubmitRegister">
+        <button type="submit" className="btnSubmit">
           Registrarse
         </button>
-        <div className="contentNotAccountRegister">
-          <p className="textRegister">¿Tenes cuenta?</p>
-          <a href="/login" className="linkRegister">
+        <div className="contentNotAccount">
+          <p className="textInfo">¿Tenes cuenta?</p>
+          <a href="/login" className="linkAction">
             Inicia sesión
           </a>
         </div>

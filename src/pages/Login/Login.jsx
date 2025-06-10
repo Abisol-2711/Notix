@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import '../../styles/index.css'
 import './login.css'
 
 function Login() {
@@ -49,34 +50,34 @@ function Login() {
   }
 
   return (
-    <div className="contentLogin">
-      <div className="contentFormBtnsLogin">
+    <div className="contentForm">
+      <div className="contentFormContainer">
         <form onSubmit={handleSubmit} className="formLogin">
-          <h2 className="titleLogin">Notix</h2>
-          <div className="contentInputLogin ">
-            <label htmlFor="email" className="labelLogin ">
+          <h2 className="formTitle">Iniciar sesión</h2>
+          <div className="contentInput ">
+            <label htmlFor="email" className="labelField ">
               Email
             </label>
             <input
               type="email"
               id="email"
               placeholder="exmple@hotmail.com"
-              className="inputLogin "
+              className="inputField"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className="contentInputLogin">
-            <label htmlFor="password" className="labelLogin ">
+          <div className="contentInput">
+            <label htmlFor="password" className="labelField ">
               Contraseña
             </label>
-            <div className="contentPasswordLogin">
+            <div className="contentPassword">
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 placeholder="********"
-                className="inputPasswordLogin"
+                className="inputPassword"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -84,7 +85,7 @@ function Login() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="btnLogin"
+                className="btnIcon"
               >
                 <span className="material-symbols-rounded">
                   {showPassword ? 'visibility' : 'visibility_off'}
@@ -92,7 +93,7 @@ function Login() {
               </button>
             </div>
           </div>
-          <button type="submit" className="btnSubmitLogin">
+          <button type="submit" className="btnSubmit">
             Iniciar sesión
           </button>
         </form>
@@ -104,9 +105,9 @@ function Login() {
         </button>
         {/* <button onClick={signInWithFacebook}>Iniciar con Facebook</button> */}
 
-        <div className="contentNotAccountLogin">
-          <p className="textLogin">¿No tenes cuenta?</p>
-          <a href="/register" className="linkLogin">
+        <div className="contentNotAccount">
+          <p className="textInfo">¿No tenes cuenta?</p>
+          <a href="/register" className="linkAction">
             Registrate
           </a>
         </div>

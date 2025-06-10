@@ -1,0 +1,147 @@
+/* REGISTER & LOGIN*/
+
+.contentForm {
+  height: 100vh;
+  padding: 1em;
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, #88d28c 0%, transparent 40%),
+    radial-gradient(circle at 5% 40%, #d3ee98 0%, transparent 35%),
+    radial-gradient(circle at 70% 30%, #fffcc2 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, #91e496 0%, transparent 40%),
+    radial-gradient(circle at 95% 50%, #d3ee98 0%, transparent 30%),
+    radial-gradient(circle at 80% 60%, #eaf3ce 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  background-color: #ffffff5c;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.formTitle {
+  font-size: 2rem;
+  color: #333;
+  margin: 0.5em;
+}
+
+.contentInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.labelField {
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.5em 1em;
+  align-self: start;
+}
+
+.inputField {
+  width: 90%;
+  padding: 10px;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contentPassword {
+  width: 90%;
+  background-color: #d3ee98;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+}
+
+.contentPassword:focus-within {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.inputPassword {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  background: transparent;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.btnIcon {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btnSubmit {
+  margin-top: 1.2em;
+  width: 90%;
+  padding: 0.5em;
+  background-color: #d3ee98;
+  color: #2d3b2e;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btnSubmit:hover {
+  background-color: #b7d17f;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.contentNotAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.textInfo {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+.linkAction {
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkAction:hover {
+  color: #357a38;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 460px) {
+  .contentFormContainer {
+    height: 34em;
+    width: 24em;
+  }
+}
