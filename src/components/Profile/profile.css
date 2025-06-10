@@ -2,10 +2,6 @@
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   cursor: pointer;
 }
 
@@ -28,31 +24,14 @@
   visibility: hidden;
   opacity: 0;
   border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
   transform: translateY(-10px);
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  -webkit-transition: opacity 0.2s ease, transform 0.2s ease;
-  -moz-transition: opacity 0.2s ease, transform 0.2s ease;
-  -ms-transition: opacity 0.2s ease, transform 0.2s ease;
-  -o-transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .activeProfile {
   visibility: visible;
   opacity: 1;
   transform: translateY(-8px);
-  -webkit-transform: translateY(-8px);
-  -moz-transform: translateY(-8px);
-  -ms-transform: translateY(-8px);
-  -o-transform: translateY(-8px);
 }
 
 .contentEditProfile,
@@ -77,3 +56,33 @@
     display: none;
   }
 } */
+
+@media (min-width: 460px) {
+  .contentImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imgProfile {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .greeting {
+    display: inline-block;
+    margin-left: 0.5em;
+    font-size: 1em;
+  }
+
+  .contentMenuProfile {
+    width: 8em;
+    height: auto;
+    padding: 0.5em 0;
+  }
+
+  .textEditProfile,
+  .textLogoutProfile {
+    font-size: 0.95em;
+  }
+}

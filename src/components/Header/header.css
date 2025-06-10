@@ -12,3 +12,10 @@
   text-decoration: none;
   color: #000;
 }
+
+@media (min-width: 460px) {
+  .header {
+    justify-content: space-between;
+    padding: 1em 2em;
+  }
+}

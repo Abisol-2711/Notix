@@ -7,6 +7,7 @@ function Search() {
         className="search"
         type="text"
         placeholder="Busca tu nota o carpeta"
+        aria-label="Buscar nota o carpeta"
       />
       <div className="contentIconSearch">
         <span className="material-symbols-rounded"> search </span>

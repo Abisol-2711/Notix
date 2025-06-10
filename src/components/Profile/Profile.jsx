@@ -59,20 +59,22 @@ function Profile() {
 
   return (
     <div ref={menuRef} style={{ display: 'inline-block' }}>
-      {photo && (
-        <img
-          className="imgProfile"
-          src={photo}
-          alt="Foto de perfil"
-          onClick={handleClick}
-        />
-      )}
+      <div className="contentImg">
+        {photo && (
+          <img
+            className="imgProfile"
+            src={photo}
+            alt="Foto de perfil"
+            onClick={handleClick}
+          />
+        )}
 
-      {name ? (
-        <p className="greeting">Hola, {name}</p>
-      ) : (
-        <p className="greeting">Nombre no disponible</p>
-      )}
+        {name ? (
+          <p className="greeting">Hola, {name}</p>
+        ) : (
+          <p className="greeting">Nombre no disponible</p>
+        )}
+      </div>
       <section
         className={`contentMenuProfile ${isActive ? 'activeProfile' : ''}`}
       >

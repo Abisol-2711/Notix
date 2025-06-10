@@ -4,10 +4,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
   background-color: #d0f7d3;
   padding: 0.5em 0;
 }
@@ -28,12 +24,31 @@
   width: 1.6em;
   height: 1.6em;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 12px 8px #feff9f;
+}
+
+@media (min-width: 460px) {
+  .formSearch {
+    margin: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  .formSearch {
+    max-width: 20em;
+    padding: 0.5em 1em;
+  }
+
+  .search {
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .contentIconSearch {
+    width: 2em;
+    height: 2em;
+  }
 }
