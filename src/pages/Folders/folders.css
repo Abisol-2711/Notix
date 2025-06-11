@@ -1,32 +1,17 @@
-.contentFoldersAndAdd {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 1em;
-  padding: 1em;
+.foldersMaxHeight {
+  max-height: calc(3 * 4.5em + 2em);
 }
 
-.contentNew {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 7em;
-  height: 7em;
-  background: none;
-  border: 1px dashed #cbb9b9;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+/* TABLET - min-width 600px aprox */
+@media (min-width: 550px) {
+  .foldersMaxHeight {
+    max-height: calc(4 * 5em + 2em);
+  }
 }
 
-.iconNew {
-  font-size: 3em;
-}
-
-.titleNew {
-  font-size: 1.2em;
+/* DESKTOP - min-width 1024px aprox */
+@media (min-width: 1024px) {
+  .foldersMaxHeight {
+    max-height: calc(5 * 5.5em + 2em);
+  }
 }

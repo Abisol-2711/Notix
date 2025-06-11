@@ -1,0 +1,17 @@
+.notesMaxHeight {
+  max-height: calc(4 * 5em + 3em);
+}
+
+/* TABLET - min-width 600px aprox */
+@media (min-width: 550px) {
+  .notesMaxHeight {
+    max-height: calc(5 * 5.5em + 3em); /* más espacio en tablet */
+  }
+}
+
+/* DESKTOP - min-width 1024px aprox */
+@media (min-width: 1024px) {
+  .notesMaxHeight {
+    max-height: calc(6 * 6em + 3em);
+  }
+}

@@ -8,10 +8,8 @@ import { UserAuth } from '../../context/AuthContext'
 import getDateNote from '../../utils/getDateNote'
 import confirmDelete from '../../utils/confirmDelete'
 
-function Note({ onEdit, onView }) {
+function Note({ notes, setNotes, onEdit, onView }) {
   const { user } = UserAuth()
-
-  const [notes, setNotes] = useState([])
 
   useEffect(() => {
     const fetchNotes = async () => {

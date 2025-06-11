@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import '../../styles/index.css'
 import './login.css'
 
 function Login() {

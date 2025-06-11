@@ -7,10 +7,8 @@ import { supabaseClient } from '../../supabase/client'
 import { UserAuth } from '../../context/AuthContext'
 import confirmDelete from '../../utils/confirmDelete'
 
-function Folder({ onEdit, onView }) {
+function Folder({ folders, setFolders, onEdit, onView }) {
   const { user } = UserAuth()
-
-  const [folders, setFolders] = useState([])
 
   useEffect(() => {
     const fetchFolders = async () => {

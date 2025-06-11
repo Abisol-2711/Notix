@@ -145,3 +145,115 @@
     width: 24em;
   }
 }
+
+/* FOLDERS & NOTES*/
+
+.contentListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0.5em;
+}
+
+.noItemsText {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  margin-bottom: 1em;
+  width: 18.2em;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.gridList.scrollable {
+  overflow-y: auto;
+}
+
+.gridList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gridList::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.gridList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gridList {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.contentNew {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 7em;
+  height: 7em;
+  background: none;
+  border: 1px dashed #cbb9b9;
+  border-radius: 10px;
+}
+
+.iconNew {
+  font-size: 3em;
+}
+
+.titleNew {
+  font-size: 1.2em;
+}
+
+/* TABLET - min-width 600px aprox */
+@media (min-width: 550px) {
+  .gridList {
+    grid-template-columns: repeat(3, 1fr);
+    width: 27.5em; /* 3 * 7em + 2 * 1em de gap */
+  }
+
+  .contentNew {
+    width: 8em;
+    height: 8em;
+  }
+
+  .iconNew {
+    font-size: 3.5em;
+  }
+
+  .titleNew {
+    font-size: 1.3em;
+  }
+}
+
+/* DESKTOP - min-width 1024px aprox */
+@media (min-width: 1024px) {
+  .gridList {
+    grid-template-columns: repeat(4, 1fr);
+    width: 36.6em; /* 4 * 8em + 3 * 1em gap */
+  }
+
+  .contentNew {
+    width: 9em;
+    height: 9em;
+  }
+
+  .iconNew {
+    font-size: 4em;
+  }
+
+  .titleNew {
+    font-size: 1.4em;
+  }
+}
